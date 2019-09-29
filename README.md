@@ -4,6 +4,7 @@
 This project aims to classify facial expression. Here I provide seven types of expression, including  *Angry Disgusted Fearful Happy Sad Surprised Neutral*.
 * Backbone ——VGG16
 * Dataset ——FER2013(If you need the dataset, please email me)
+![Backbone](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/VGG-NET.png)
 
 ### Highlight
 * In this project, **face detection part is applied,** which can definitely improve the test accuracy. More over, it can support the robust of the model, **especially no face input image**.
@@ -11,7 +12,9 @@ This project aims to classify facial expression. Here I provide seven types of e
 * Dependencies fewer.
 * when testing, batch images input is supported.
 
-
+## Results Show
+![Result1](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/2.jpg-result.jpg)
+![Result2](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/3.jpg-result.jpg)
 ## Requirement
 **Recommend to use Anaconda**
 * Ubuntu16.04 (Windows also avaliable, but need to change something, like image path)
