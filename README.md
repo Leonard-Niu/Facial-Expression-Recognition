@@ -3,14 +3,14 @@
 ## Introduction
 This project aims to classify facial expression. Here I provide seven types of expression, including  *Angry Disgusted Fearful Happy Sad Surprised Neutral*.
 * Backbone ——VGG16
-* Dataset ——FER2013(If you need the dataset, please email me)
+* Dataset ——FER2013[240×240 Data（Train、Val、Test）](https://pan.baidu.com/s/1sJOcJR7dcS3xnmFDj24Q_A) password:5j3x
 ![Backbone](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/VGG-NET.png)
 
 ### Highlight
 * In this project, **face detection part is applied,** which can definitely improve the test accuracy. More over, it can support the robust of the model, **especially no face input image**.
 * **GPU and CPU all support**. If don't have GPU, is OK.
 * Dependencies fewer.
-* when testing, batch images input is supported.
+* When testing, batch images input is supported.
 
 ## Results Show
 ![Result1](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/2.jpg-result.jpg)
@@ -36,21 +36,40 @@ First, put the processed dataset in the folder "data", the data folder like foll
     -- data
     ------- train
     ------------------ 0
+    ---------------------------00000.jpg
+    ---------------------------00005.jpg
+    ...
     ------------------ 1
+    ---------------------------00023.jpg
+    ...
     ...
     ------------------ 6
+    ---------------------------00061.jpg
+    ...
     
     ------- val
     ------------------ 0
+    ---------------------------00006.jpg
+    ...
     ------------------ 1
+    ---------------------------00043.jpg
+    ...
     ...
     ------------------ 6
+    ---------------------------00021.jpg
+    ...
     
     ------- test
     ------------------ 0
+    ---------------------------00008.jpg
+    ...
     ------------------ 1
+    ---------------------------00011.jpg
+    ...
     ...
     ------------------ 6
+    ---------------------------00022.jpg
+    ...
 0-6 represent 7 different expression:Angry Disgusted Fearful Happy Sad Surprised Neutral
 ## Demo
 ### Image Input
@@ -69,7 +88,7 @@ Find image process methods to improve the accuracy.
 ## Issue and Suggestion
 Any questions, open a new issue.
 
-### If you think it's helpful, please give me a star      ^ _ ^
+### If helpful, please give me a star      ^ _ ^
 ## Reference
 * [WuJie1010/Facial-Expression-Recognition.Pytorch](https://github.com/WuJie1010/Facial-Expression-Recognition.Pytorch)
 
