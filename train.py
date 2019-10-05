@@ -18,13 +18,13 @@ from model import VGG16
 
 parser = argparse.ArgumentParser(description='Facial Expression Recognition')
 parser.add_argument('--model', type=str, default='VGG16', help='Net')
-parser.add_argument('--bs', default=8, type=int, help='batch size')
-parser.add_argument('--lr', default=0.001, type=float, help='learning rate')
-parser.add_argument('--resume', default=False, help='resume from checkpoint')
+parser.add_argument('--bs', default=16, type=int, help='batch size')
+parser.add_argument('--lr', default=0.0001, type=float, help='learning rate')
+parser.add_argument('--resume', default=True, help='resume from checkpoint')
 parser.add_argument('--GPU', default=True, help='train with GPU')
-parser.add_argument('--epoch', default=10, type=int, help='epoch')
+parser.add_argument('--epoch', default=250, type=int, help='epoch')
 parser.add_argument('--input_size', default=224, type=int)
-parser.add_argument('--ckpt_path', default='./checkpoints/VGG16-165.t7')
+parser.add_argument('--ckpt_path', default='./checkpoints/VGG16-101.t7')
 parser.add_argument('--data_path', default='./data')
 
 cfg, unknown = parser.parse_known_args()
@@ -77,6 +77,9 @@ if cfg.resume:
     checkpoint = torch.load(cfg.ckpt_path)
     net.load_state_dict(checkpoint['net'])
     best_test_acc = checkpoint['best_test_acc']
+    print('best_test_acc is %.4f%%'%best_test_acc)
+    best_test_acc_epoch = checkpoint['best_test_acc_epoch']
+    print('best_test_acc_epoch is %d'%best_test_acc_epoch)
     start_epoch = checkpoint['best_test_acc_epoch'] + 1
 else:
     print('------------------------------')
@@ -104,6 +107,7 @@ def train(Epoch):
         outputs = net(inputs)
         optimizer.zero_grad()
         loss = criterion(outputs, target)
+        print(loss)
         # loss.requires_grad=True
         loss.backward()
         optimizer.step()
@@ -118,6 +122,7 @@ def train(Epoch):
         # trainacc = 1.0 * correct/total
 
     train_acc = 100.0 * int(correct.data) / total
+    print('Train loss is %.3f'%trainloss)
     print('%d training epoch is over'%epoch)
     print('In %d pictures, %d are predicted right' %(total, correct))
     print('Training acc is %.4f%%'%train_acc)
@@ -146,17 +151,23 @@ def test(Epoch):
         total += target.size(0)
         correct += predicted.eq(target.data).sum()
 
-    test_acc = 100.0 * correct / total
+    test_acc = 100.0 * int(correct.data) / total
     print('One test epoch is over')
-    print('Testing acc is %.3f' % test_acc)
+    print('In %d pictures, %d are predicted right' %(total, correct))
+    print('Testing acc is %.4f%%' % test_acc)
+
+    #print(type(test_acc))
+    #print(type(best_test_acc))
+    # data type match!
+    # PS: np.astype()/np.dtype() methods
     if test_acc > best_test_acc:
         print('Saving new ckpt')
-        print("best_test_acc: %0.3f" % test_acc)
+        print("best_test_acc: %0.4f%%" % test_acc)
         print('best_test_epoch: %d ' % Epoch)
         state = {
             'net': net.state_dict() if use_cuda else net,
-            'besttestacc': test_acc,
-            'besttestaccepoch': Epoch,
+            'best_test_acc': test_acc,
+            'best_test_acc_epoch': Epoch,
         }
         torch.save(state, os.path.join('./checkpoints', cfg.model + '-' + str(Epoch) + '.t7'))
         best_test_acc = test_acc
