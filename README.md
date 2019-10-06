@@ -2,9 +2,10 @@
 
 ## Introduction
 This project aims to classify facial expression. Here I provide seven types of expression, including  *Angry Disgusted Fearful Happy Sad Surprised Neutral*.
+With 250 epoch training, best testset accuracy achieves **70.382%**
+Here is the trained model link: ———— [Trained Model Link](https://pan.baidu.com/s/18YSCZkg1rkRBXaSK5ehVxA) password:5nfw
 * Backbone ——VGG16
-* Dataset ——FER2013
-————[240×240 Data（Train、Val、Test）](https://pan.baidu.com/s/1sJOcJR7dcS3xnmFDj24Q_A) password:5j3x
+* Dataset ——FER2013: ———— [Dataset Link 240×240 Data（Train、Val、Test）](https://pan.baidu.com/s/1sJOcJR7dcS3xnmFDj24Q_A) password:5j3x
 ![Backbone](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/VGG-NET.png)
 
 ### Highlight
