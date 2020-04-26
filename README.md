@@ -2,26 +2,29 @@
 
 ## Introduction
 This project aims to classify facial expression. Here I provide seven types of expression, including  *Angry Disgusted Fearful Happy Sad Surprised Neutral*.
-With 250 epoch training, best testset accuracy achieves **70.382%**
+With 250 epochs, this accuracy of baseline achieves **70.382%**
+
 Here is the trained model link: ———— [Trained Model Link](https://pan.baidu.com/s/18YSCZkg1rkRBXaSK5ehVxA) password:5nfw
 * Backbone ——VGG16
-* Dataset ——FER2013: ———— [Dataset Link 240×240 Data（Train、Val、Test）](https://pan.baidu.com/s/1sJOcJR7dcS3xnmFDj24Q_A) password:5j3x
+* Dataset ——FER2013: 
+
+[Dataset Link 240×240 Data（Train、Val、Test）](https://pan.baidu.com/s/1sJOcJR7dcS3xnmFDj24Q_A) password:5j3x
 ![Backbone](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/VGG-NET.png)
 
 ### Highlight
 * In this project, **face detection part is applied,** which can definitely improve the test accuracy. More over, it can support the robust of the model, **especially no face input image**.
-* **GPU and CPU all support**. If don't have GPU, is OK.
+* **GPU and CPU all support**. If no GPU, it's OK.
 * Dependencies fewer.
-* When testing, batch images input is supported.
+* When testing, batch images input is supported in the demo.
 
 ## Results Show
 ![Result1](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/2.jpg-result.jpg)
 ![Result2](https://github.com/Leonard-Niu/Facial-Expression-Recognition/blob/master/R/3.jpg-result.jpg)
 ## Requirement
 **Recommend to use Anaconda**
-* Ubuntu16.04 (Windows also avaliable, but need to change something, like image path)
+* Ubuntu16.04 (Windows also avaliable)
 * Python 3.6
-* Pytorch (latest version or old version all fine, mine is 0.4.1 & 1.1.0)
+* Pytorch (latest version or old version are all fine)
 * torchvision
 * numpy
 * matplotlib
@@ -72,12 +75,13 @@ First, put the processed dataset in the folder "data", the data folder like foll
     ------------------ 6
     ---------------------------00022.jpg
     ...
-0-6 represent 7 different expression:Angry Disgusted Fearful Happy Sad Surprised Neutral
+0-6 represent 7 different expression: ***Angry Disgusted Fearful Happy Sad Surprised Neutral***
 ## Demo
 ### Image Input
 
     python demo_image.py
-When running, first need to type the image name, such as *1.jpg*.
+Running the demo, first need to type the image name, such as *1.jpg*.
+
 Put input images in *input* folder 
 ### Camera Detection
 
