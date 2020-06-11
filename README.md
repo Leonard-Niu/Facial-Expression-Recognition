@@ -91,6 +91,7 @@ Put input images in *input* folder
     python demo_image_batch.py
 ## TODO
 ~~Find image process methods to improve the accuracy.~~
+
 Apply RPN face detection to improve accuracy.
 ## Issue and Suggestion
 Any questions, open a new issue.
