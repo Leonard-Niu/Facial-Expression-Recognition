@@ -90,11 +90,12 @@ Put input images in *input* folder
 
     python demo_image_batch.py
 ## TODO
-Find image process methods to improve the accuracy.
+~~Find image process methods to improve the accuracy.~~
+Apply RPN face detection to improve accuracy.
 ## Issue and Suggestion
 Any questions, open a new issue.
 
-### If helpful, please give me a star      ^ _ ^
+### If helpful, please give me a star      
 ## Reference
 * [WuJie1010/Facial-Expression-Recognition.Pytorch](https://github.com/WuJie1010/Facial-Expression-Recognition.Pytorch)
 
